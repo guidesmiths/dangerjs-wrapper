@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Apply cultural rules during your CI process",
   "main": "index.js",
-  "bin": "danger ci",
+  "bin": "danger",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

@@ -1,9 +1,9 @@
 {
   "name": "dangerjs-wrapper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Apply cultural rules during your CI process",
+  "bin": "command.js",
   "main": "index.js",
-  "bin": "danger",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

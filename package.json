@@ -1,6 +1,6 @@
 {
   "name": "dangerjs-wrapper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Apply cultural rules during your CI process",
   "main": "index.js",
   "bin": "danger",

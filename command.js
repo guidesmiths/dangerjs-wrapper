@@ -1,3 +1,3 @@
-const dangerJsCommand = require('danger/distribution/commands/danger')
+const dangerJsCommand = require('danger/distribution/commands/danger-ci')
 
 module.exports = dangerJsCommand

@@ -1,2 +1,3 @@
-# dangerjs-wrapper
-Apply cultural rules during your CI process
+# Dangerjs-wrapper
+
+Apply cultural rules during your CI process.

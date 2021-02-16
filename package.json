@@ -51,6 +51,13 @@
     "typescript": "^3.7.5",
     "validate-commit-msg": "^2.12.1"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
+  },
   "optionalDependencies": {
     "esdoc": "^0.5.2"
   },

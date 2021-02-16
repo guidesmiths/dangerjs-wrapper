@@ -1,10 +1,7 @@
 {
-  "name": "danger-plugin-dangerjs-wrapper",
+  "name": "dangerjs-wrapper",
+  "version": "1.0.0",
   "description": "Plugin to Apply cultural rules during your CI process.",
-  "author": {
-    "name": "Roberto Hernández",
-    "email": "roberto.hernandez@guidesmiths.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/guidesmiths/dangerjs-wrapper.git"
@@ -18,7 +15,6 @@
     "danger-plugin",
     "m"
   ],
-  "version": "0.0.0-development",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {

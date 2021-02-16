@@ -30,7 +30,9 @@
     "prettier": "prettier",
     "prettier-write": "npm run prettier -- --parser typescript --no-semi --trailing-comma es5 --write --print-width 120",
     "prettier-project": "npm run prettier-write -- 'src/**/*.{ts,tsx}'",
-    "lint": "tslint \"src/**/*.ts\""
+    "lint": "tslint \"src/**/*.ts\"",
+    "lint:fix": "tslint \"src/**/*.ts\" --fix"
+
   },
   "license": "MIT",
   "engines": {

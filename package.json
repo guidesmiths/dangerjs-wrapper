@@ -32,8 +32,8 @@
     "prettier-project": "npm run prettier-write -- 'src/**/*.{ts,tsx}'",
     "lint": "tslint \"src/**/*.ts\"",
     "lint:fix": "tslint \"src/**/*.ts\" --fix"
-
   },
+  "author": "Guidesmiths",
   "license": "MIT",
   "engines": {
     "node": ">=4.0.0"

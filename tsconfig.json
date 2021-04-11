@@ -1,22 +1,25 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "rootDir": "src",
+    "allowJs": true,
+    "declaration": true,
     "outDir": "dist",
-    "allowJs": false,
-    "pretty": true,
-    "strictNullChecks": true,
-    "declaration": true
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "lib":["es2017"],
+  "lib": [
+    "ESNext"
+  ],
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "dangerfile.ts"
+    "src/**/*"
   ],
   "exclude": [
-    "dangerfile.ts",
     "node_modules",
     "dist"
   ]

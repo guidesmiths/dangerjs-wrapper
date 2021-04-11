@@ -1,6 +1,9 @@
-import { DangerDSLType } from "danger/distribution/dsl/DangerDSL"
-import { checkChangedFiles, checkReviewers } from "./rules"
-declare var danger: DangerDSLType
+import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL'
+import { checkChangedFiles, checkReviewers } from './rules'
+
+// TODO Check how is this variable initialized or its content updated.
+declare let danger: DangerDSLType
+// TODO Check where are declared these exported functions.
 export declare function message(message: string): void
 export declare function warn(message: string): void
 export declare function fail(message: string): void
@@ -13,17 +16,17 @@ export declare function markdown(message: string): void
 const checkTicketLinkInPrBoby = () => {
   const ticketRegExp = /AB#[0-9]{5}/g
   if (!danger.github?.pr?.body.match(ticketRegExp)) {
-    return fail("Add the ticket for this PR at the PR body  2")
+    return fail('Add the ticket for this PR at the PR body  2')
   }
 }
 
 const checkNewDependencies = () => {
-  if (danger.git?.modified_files?.includes("package.json")) {
-    warn("This PR contains new/updated dependencies. Remember execute npm i before testing the PR! 2")
+  if (danger.git?.modified_files?.includes('package.json')) {
+    warn('This PR contains new/updated dependencies. Remember execute npm i before testing the PR! 2')
   }
 }
 
-const checkUpdatedTests = (testFilePattern = "test") => {
+const checkUpdatedTests = (testFilePattern = 'test') => {
   const addedFiles = danger.git.created_files || []
   const changedFiles = danger.git.modified_files || []
   const testFilesUpdated = [...addedFiles, ...changedFiles].filter(filepath => filepath.includes(testFilePattern))
@@ -33,10 +36,11 @@ const checkUpdatedTests = (testFilePattern = "test") => {
   }
 }
 
-export default function() {
-  checkReviewers()
-  checkChangedFiles()
-  checkTicketLinkInPrBoby()
-  checkNewDependencies()
-  checkUpdatedTests()
+// export default function () {
+export {
+  checkReviewers,
+  checkChangedFiles,
+  checkTicketLinkInPrBoby,
+  checkNewDependencies,
+  checkUpdatedTests
 }

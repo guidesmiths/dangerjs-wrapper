@@ -1,2 +1,2 @@
-export * from "./GitHubMockBuilder"
-export * from "./GitMockBuilder"
+export * from './GitHubMockBuilder'
+export * from './GitMockBuilder'

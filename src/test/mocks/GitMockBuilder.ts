@@ -6,26 +6,26 @@ export const gitMockBuilder = (modifiedFiles: string[] = [], createdFiles: strin
     deleted_files: deletedFiles,
     commits: [
       {
-        sha: "string",
-        parents: ["string"],
+        sha: 'string',
+        parents: ['string'],
         author: {
-          name: "string",
-          email: "string",
-          date: "string",
+          name: 'string',
+          email: 'string',
+          date: 'string'
         },
         committer: {
-          name: "string",
-          email: "string",
-          date: "string",
+          name: 'string',
+          email: 'string',
+          date: 'string'
         },
-        message: "string",
+        message: 'string',
         tree: {
-          sha: "string",
-          url: "string",
+          sha: 'string',
+          url: 'string'
         },
-        url: "string",
-      },
+        url: 'string'
+      }
 
-    ],
+    ]
   }
 }

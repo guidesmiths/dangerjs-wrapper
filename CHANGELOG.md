@@ -42,12 +42,15 @@
   - Define the scripts: `deps`, `deps:audit`, `deps:sec-scan` and `lint:lockfile`.
 - Update the `esdoc` optional dependency. After the update process, some security vulnerability are detected yet.
   Based on that situation and due to the project documentation is not created using this module right now, the module and its related scripts have been removed.
+  
   Affected scripts:
   - `"predocs": "rm -rf docs/"`
   - `"docs": "esdoc -c .esdoc.json"`
+  
   Affected optional module:
   - esdoc (`npm i --save-optional esdoc@^1.1.0`)
-  - Install a versioned module of `danger` as `dependency` (not `devDependency`).
+
+- Install a versioned module of `danger` as `dependency` (not `devDependency`).
 - Update the `build` script in order to reference the specific `tsconfig.build.json` file.
 - Update the `main` and `types` properties in order to aim to `./dist/index.js` and `./dist/index.d.ts` repectively. The `./` was mandatory.
 - Include the `files` field in order to publish only the `dist` folder in the NPM module and not the whole repository code.

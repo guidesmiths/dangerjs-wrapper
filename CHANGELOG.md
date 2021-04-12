@@ -56,9 +56,6 @@
 
 - Remove the file due to its functions are going to be assumed by ESLint.
 
-"danger": "*",
-"prettier": "^1.3.1",
-
 ## tsconfig.json file
 
 - Original content:

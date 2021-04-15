@@ -1,11 +1,11 @@
-import { checkReviewers } from "../../../rules"
-import { gitHubMockBuilder } from "../../mocks"
+import { checkReviewers } from '@rules'
+import { gitHubMockBuilder } from '@testing/mocks'
 
-import {DangerModel} from "../../../models/DangerModel"
+import { DangerModel } from '@models'
 
 declare const global: DangerModel
 
-describe("Check reviewers tests", () => {
+describe('Check reviewers tests', () => {
   beforeEach(() => {
     global.warn = jest.fn()
     global.message = jest.fn()
@@ -16,7 +16,7 @@ describe("Check reviewers tests", () => {
     jest.resetAllMocks()
   })
 
-  it("fails if there are no asignees on the PR", () => {
+  it('fails if there are no asignees on the PR', () => {
     global.danger = { github: gitHubMockBuilder() }
     checkReviewers()
     expect(global.fail).toHaveBeenCalled()

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@rules": [
+        "src/rules"
+      ],
+      "@testing/*": [
+        "src/test/*"
+      ],
+      "@models": [
+        "src/models"
+      ]
+    }
+  }
+}

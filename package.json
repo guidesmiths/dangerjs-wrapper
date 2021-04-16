@@ -27,7 +27,7 @@
     "test": "jest",
     "prepublish": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "lint": "tslint \"src/**/*.ts\"",
+    "lint": "npx eslint",
     "lint:fix": "npx eslint --fix",
     "deps": "npm run deps:audit && npm run deps:sec-scan",
     "deps:audit": "npm audit && npm outdated",

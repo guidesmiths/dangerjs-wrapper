@@ -1,5 +1,5 @@
 import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL'
-import { checkChangedFiles, checkReviewers } from './rules'
+import { checkChangedFiles, checkReviewers, checkTicketLinkInPrBoby } from '@rules'
 
 // TODO Check how is this variable initialized or its content updated.
 declare let danger: DangerDSLType
@@ -12,14 +12,6 @@ export declare function markdown(message: string): void
 /**
  * Wrapper of dangerjs in ts
  */
-
-const checkTicketLinkInPrBoby = () => {
-  const ticketRegExp = /AB#[0-9]{5}/g
-  if (!danger.github?.pr?.body.match(ticketRegExp)) {
-    return fail('Add the ticket for this PR at the PR body  2')
-  }
-}
-
 const checkNewDependencies = () => {
   if (danger.git?.modified_files?.includes('package.json')) {
     warn('This PR contains new/updated dependencies. Remember execute npm i before testing the PR! 2')

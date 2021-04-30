@@ -17,9 +17,17 @@ npm i -D dangerjs-wrapper
 At a glance:
 ```js
 // dangerfile.js
-import dangerjsWrapper from 'dangerjs-wrapper'
+const {
+  checkReviewers,
+  checkChangedFiles,
+  checkTicketLinkInPrBoby,
+  checkUpdatedTests
+} = require('dangerjs-wrapper')
+checkReviewers()
+checkChangedFiles()
+checkTicketLinkInPrBoby()
+checkUpdatedTests()
 
-dangerjsWrapper()
 ```
 ## Changelog
 

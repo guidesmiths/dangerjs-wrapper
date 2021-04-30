@@ -27,12 +27,13 @@
     "test": "jest",
     "prepublish": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "lint": "tslint \"src/**/*.ts\"",
+    "lint": "npx eslint",
     "lint:fix": "npx eslint --fix",
     "deps": "npm run deps:audit && npm run deps:sec-scan",
     "deps:audit": "npm audit && npm outdated",
     "deps:sec-scan": "npm run lint:lockfile",
-    "lint:lockfile": "lockfile-lint --path package-lock.json --type npm --validate-https --allowed-hotst npm"
+    "lint:lockfile": "lockfile-lint --path package-lock.json --type npm --validate-https --allowed-hotst npm",
+    "new:rule": "node_modules/.bin/hygen rule new"
   },
   "author": "Guidesmiths",
   "license": "MIT",
@@ -61,6 +62,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "husky": "^6.0.0",
+    "hygen": "^6.0.4",
     "jest": "^26.6.3",
     "lockfile-lint": "^4.6.2",
     "semantic-release": "^17.4.2",

@@ -19,9 +19,10 @@ describe('[Unit-Tests] - <%= h.changeCase.camel(name) %>', () => {
     jest.resetAllMocks()
   })
 
-  it('Example', () => {
+  it('You must implement this testing case!!!', () => {
     global.danger = { github: gitHubMockBuilder() }
     <%= h.changeCase.camel(name) %>()
     expect(<%= h.changeCase.camel(name) %>).toHaveBeenCalled()
+    expect(false).toBeTruthy()
   })
 })

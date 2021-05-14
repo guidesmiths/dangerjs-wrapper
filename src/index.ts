@@ -1,8 +1,9 @@
-import { checkChangedFiles, checkReviewers, checkTicketLinkInPrBoby, checkUpdatedTests } from './rules'
+import { checkChangedFiles, checkReviewers, checkTicketLinkInPrBoby, checkUpdatedTests, checkFlawlessCode } from './rules'
 
 export {
   checkReviewers,
   checkChangedFiles,
   checkTicketLinkInPrBoby,
-  checkUpdatedTests
+  checkUpdatedTests,
+  checkFlawlessCode
 }

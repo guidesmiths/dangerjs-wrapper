@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 // TODO Check where are declared these exported functions
+export declare function markdown(message: string): void
 export declare function message(message: string): void
 export declare function warn(message: string): void
 export declare function fail(message: string): void
@@ -13,11 +14,8 @@ const getGif = async (apiKey:string) => {
 
 export const checkFlawlessCode = (apiKey:string) => {
   getGif(apiKey).then(gifUrl => {
-    message('Example ok')
-    message(`![](${gifUrl})`)
+    markdown(`![](${gifUrl})`)
   }).catch(e => {
-    message('Example fail')
-    message(e.message)
-    message('![](https://giphy.com/embed/11ISwbgCxEzMyY)')
+    markdown('![](https://giphy.com/embed/11ISwbgCxEzMyY)')
   })
 }

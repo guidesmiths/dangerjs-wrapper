@@ -12,12 +12,10 @@ const getGif = async (apiKey:string) => {
   return responseJson.data[0].embed_url
 }
 
-export const checkFlawlessCode = async (apiKey:string) => {
-  const gifUrl = getGif(apiKey).then(() => {
+export const checkFlawlessCode = (apiKey:string) => {
+  getGif(apiKey).then(gifUrl => {
     message(`![](${gifUrl})`)
   }).catch(e => {
-    const gif = 'https://giphy.com/gifs/3o7abonV6K9irq7kaY'
-    console.log(gif)
-    message(`![](${gif})`)
+    message('![](https://giphy.com/embed/11ISwbgCxEzMyY)')
   })
 }

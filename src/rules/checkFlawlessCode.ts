@@ -9,13 +9,13 @@ export declare function fail(message: string): void
 const getGif = async (apiKey:string) => {
   const url = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=lgtm&rating=g&lang=en`
   const { data } = await axios(url)
-  return data.data.url
+  return data.data.image_original_url
 }
 
 export const checkFlawlessCode = (apiKey:string) => {
   getGif(apiKey).then(gifUrl => {
-    markdown(`Great job!! [](${gifUrl})`)
+    message(`![](${gifUrl})`)
   }).catch(e => {
-    message('Great job!! [](https://giphy.com/embed/11ISwbgCxEzMyY)')
+    message('![](https://media.giphy.com/media/11ISwbgCxEzMyY/source.gif)')
   })
 }

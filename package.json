@@ -1,6 +1,6 @@
 {
   "name": "dangerjs-wrapper",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Plugin to Apply cultural rules during your CI process.",
   "repository": {
     "type": "git",
@@ -52,7 +52,6 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@types/jest": "^26.0.22",
-    "@types/node-fetch": "^2.5.10",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "commitizen": "^4.2.3",
@@ -73,7 +72,7 @@
     "validate-commit-msg": "^2.14.0"
   },
   "dependencies": {
-    "danger": "^10.6.4",
-    "node-fetch": "^2.6.1"
+    "axios": "^0.21.1",
+    "danger": "^10.6.4"
   }
 }

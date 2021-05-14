@@ -6,7 +6,7 @@ export declare function warn(message: string): void
 export declare function fail(message: string): void
 
 const getGif = async (apiKey:string) => {
-  const url = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&q=lgtm&rating=g&lang=en`
+  const url = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=lgtm&rating=g&lang=en`
   const response = await fetch(url)
   const responseJson = await response.json()
   return responseJson.data.url

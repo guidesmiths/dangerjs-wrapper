@@ -13,8 +13,11 @@ const getGif = async (apiKey:string) => {
 
 export const checkFlawlessCode = (apiKey:string) => {
   getGif(apiKey).then(gifUrl => {
+    message('Example ok')
     message(`![](${gifUrl})`)
   }).catch(e => {
+    message('Example fail')
+    message(e.message)
     message('![](https://giphy.com/embed/11ISwbgCxEzMyY)')
   })
 }

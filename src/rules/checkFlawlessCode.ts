@@ -14,7 +14,7 @@ const getGif = async (apiKey:string) => {
 
 export const checkFlawlessCode = (apiKey:string) => {
   getGif(apiKey).then(gifUrl => {
-    message('Example ok')
+    markdown(`Great job!! [](${gifUrl})`)
   }).catch(e => {
     message('Great job!! [](https://giphy.com/embed/11ISwbgCxEzMyY)')
   })

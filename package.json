@@ -1,6 +1,6 @@
 {
   "name": "dangerjs-wrapper",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Plugin to Apply cultural rules during your CI process.",
   "repository": {
     "type": "git",

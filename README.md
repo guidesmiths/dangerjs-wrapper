@@ -8,26 +8,36 @@ Apply cultural rules during your CI process.
 
 ## Usage
 
-Install:
+- Install:
 
 ```sh
 npm i -D dangerjs-wrapper
 ```
 
-At a glance:
-```js
-// dangerfile.js
-const {
-  checkReviewers,
-  checkChangedFiles,
-  checkTicketLinkInPrBoby,
-  checkUpdatedTests
-} = require('dangerjs-wrapper')
-checkReviewers()
-checkChangedFiles()
-checkTicketLinkInPrBoby()
-checkUpdatedTests()
+- Create a `dangerfile.js`
+- Create the config file following this interface:
 
+````typescript
+interface DangerConfig {
+  giphyApiKey: string
+  minReviewersRequired?: number
+  ticketLinkRegExp?: RegExp
+  testFilesRegExp?: RegExp
+  changedFilesLimit?: number
+}
+````
+
+- Call the function `checkPullRequest` passing the config as a param
+
+```js
+const { checkPullRequest } = require('dangerjs-wrapper')
+const dangerConfig = { 
+  giphyApiKey: 'example',
+  minReviewersRequired:2,
+  changedFilesLimit: 5
+}
+
+checkPullRequest(dangerConfig)
 ```
 ## Changelog
 

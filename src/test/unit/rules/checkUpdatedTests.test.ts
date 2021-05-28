@@ -17,39 +17,44 @@ describe('[Unit-Tests] - checkUpdatedTests', () => {
   describe('[Unit-Tests] - checkUpdatedTests - Default regex - (spec)', () => {
     it('Should not fails if there are test files created or updated (js)', () => {
       global.danger = { git: gitMockBuilder(['example.spec.js']) }
-      checkUpdatedTests()
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant' })
       expect(checkUpdatedTests)
       expect(global.warn).not.toHaveBeenCalled()
+      expect(result).toBeTruthy()
     })
 
     it('Should not fails if there are test files created or updated (ts)', () => {
       global.danger = { git: gitMockBuilder(['example.spec.ts']) }
-      checkUpdatedTests()
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant' })
       expect(checkUpdatedTests)
       expect(global.warn).not.toHaveBeenCalled()
+      expect(result).toBeTruthy()
     })
 
     it('Should fails if there are test files created or updated', () => {
       global.danger = { git: gitMockBuilder(['example.ts']) }
-      checkUpdatedTests()
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant' })
       expect(checkUpdatedTests)
       expect(global.warn).toHaveBeenCalled()
+      expect(result).toBeFalsy()
     })
   })
 
   describe('[Unit-Tests] - checkUpdatedTests - Default regex - (test)', () => {
     it('Should not fails if there are test files created or updated (js)', () => {
       global.danger = { git: gitMockBuilder(['example.test.js']) }
-      checkUpdatedTests()
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant' })
       expect(checkUpdatedTests)
       expect(global.warn).not.toHaveBeenCalled()
+      expect(result).toBeTruthy()
     })
 
     it('Should not fails if there are test files created or updated (ts)', () => {
       global.danger = { git: gitMockBuilder(['example.test.ts']) }
-      checkUpdatedTests()
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant' })
       expect(checkUpdatedTests)
       expect(global.warn).not.toHaveBeenCalled()
+      expect(result).toBeTruthy()
     })
   })
 
@@ -57,22 +62,25 @@ describe('[Unit-Tests] - checkUpdatedTests', () => {
     const customRegex = /(styled.test|spec).(js|jsx|ts|tsx)/
     it('Should not fails if there are test files created or updated (ts)', () => {
       global.danger = { git: gitMockBuilder(['styled.test.js']) }
-      checkUpdatedTests(customRegex)
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant', testFilesRegExp: customRegex })
       expect(checkUpdatedTests)
       expect(global.warn).not.toHaveBeenCalled()
+      expect(result).toBeTruthy()
     })
     it('Should not fails if there are test files created or updated', () => {
       global.danger = { git: gitMockBuilder(['styled.spec.ts']) }
-      checkUpdatedTests(customRegex)
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant', testFilesRegExp: customRegex })
       expect(checkUpdatedTests)
       expect(global.warn).not.toHaveBeenCalled()
+      expect(result).toBeTruthy()
     })
 
     it('Should fails if there are test files created or updated', () => {
       global.danger = { git: gitMockBuilder(['example.ts']) }
-      checkUpdatedTests(customRegex)
+      const result = checkUpdatedTests({ giphyApiKey: 'irrelevant', testFilesRegExp: customRegex })
       expect(checkUpdatedTests)
       expect(global.warn).toHaveBeenCalled()
+      expect(result).toBeFalsy()
     })
   })
 })

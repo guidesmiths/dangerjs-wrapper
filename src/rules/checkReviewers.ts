@@ -11,6 +11,8 @@ export declare function markdown(message: string): void
 
 export const checkReviewers = () => {
   if (danger.github.requested_reviewers?.users.length === 0) {
-    return fail('PR must have at least 1 reviewer!!')
+    fail('PR must have at least 1 reviewer!!')
+    return false
   }
+  return true
 }

@@ -33,8 +33,9 @@ describe('[Unit-Tests] - checkTicketLinkInPrBoby', () => {
     - [ ] I've added tests`
       )
     }
-    checkTicketLinkInPrBoby()
+    const result = checkTicketLinkInPrBoby({ giphyApiKey: 'irrelevant' })
     expect(global.fail).not.toHaveBeenCalled()
+    expect(result).toBeTruthy()
   })
 
   it('Should fails if there pr body has the ticket address in the body', () => {
@@ -54,7 +55,8 @@ describe('[Unit-Tests] - checkTicketLinkInPrBoby', () => {
     - [ ] I've added tests`
       )
     }
-    checkTicketLinkInPrBoby()
+    const result = checkTicketLinkInPrBoby({ giphyApiKey: 'irrelevant' })
     expect(global.fail).toHaveBeenCalled()
+    expect(result).toBeFalsy()
   })
 })

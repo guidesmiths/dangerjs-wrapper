@@ -16,9 +16,25 @@ describe('Check reviewers tests', () => {
     jest.resetAllMocks()
   })
 
-  it('fails if there are no asignees on the PR', () => {
+  it('It should fails if there are no asignees on the PR', () => {
     global.danger = { github: gitHubMockBuilder() }
-    checkReviewers()
+    const result = checkReviewers()
     expect(global.fail).toHaveBeenCalled()
+    expect(result).toBeFalsy()
+  })
+
+  it('It should not fails if there are no asignees on the PR', () => {
+    global.danger = {
+      github: gitHubMockBuilder('', [{
+        id: 0,
+        login: 'aa',
+        type: 'User',
+        avatar_url: 'string',
+        href: '0'
+      }])
+    }
+    const result = checkReviewers()
+    expect(global.fail).not.toHaveBeenCalled()
+    expect(result).toBeTruthy()
   })
 })

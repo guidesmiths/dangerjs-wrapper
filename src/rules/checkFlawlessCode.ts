@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { DangerConfig } from '../models/DangerConfig'
 
 // TODO Check where are declared these exported functions
 export declare function markdown(message: string): void
@@ -12,8 +13,9 @@ const getGif = async (apiKey:string) => {
   return data.data.image_original_url
 }
 
-export const checkFlawlessCode = (apiKey:string) => {
-  getGif(apiKey).then(gifUrl => {
+export const checkFlawlessCode = (dangerConfig:DangerConfig) => {
+  const { giphyApiKey } = dangerConfig
+  getGif(giphyApiKey).then(gifUrl => {
     message(`![](${gifUrl})`)
   }).catch(e => {
     message('![](https://media.giphy.com/media/11ISwbgCxEzMyY/source.gif)')

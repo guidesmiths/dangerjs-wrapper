@@ -16,13 +16,15 @@ describe('Changed files tests', () => {
 
   it('fails if there are more changed files than 1', () => {
     global.danger = { git: gitMockBuilder(['example.ts'], ['example.ts'], ['example.ts']) }
-    checkChangedFiles(1)
+    const result = checkChangedFiles({ giphyApiKey: 'irrelevant', changedFilesLimit: 1 })
     expect(global.warn).toHaveBeenCalled()
+    expect(result).toBeFalsy()
   })
 
   it('Should not fails if there are less changed files than 4', () => {
     global.danger = { git: gitMockBuilder(['example.ts'], ['example.ts'], ['example.ts']) }
-    checkChangedFiles(3)
+    const result = checkChangedFiles({ giphyApiKey: 'irrelevant', changedFilesLimit: 3 })
     expect(global.warn).not.toHaveBeenCalled()
+    expect(result).toBeTruthy()
   })
 })

@@ -10,7 +10,7 @@ import {
 export const checkPullRequest = (dangerConfig:DangerConfig) => {
   const rules:boolean[] = [
     checkChangedFiles(dangerConfig),
-    checkReviewers(),
+    checkReviewers(dangerConfig),
     checkTicketLinkInPrBoby(dangerConfig),
     checkUpdatedTests(dangerConfig)
   ]

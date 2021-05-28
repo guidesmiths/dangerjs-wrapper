@@ -1,4 +1,5 @@
 import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL'
+import { DangerConfig } from '../models/DangerConfig'
 
 // TODO Check how is this variable initialized or its content updated.
 declare let danger: DangerDSLType
@@ -9,9 +10,11 @@ export declare function warn(message: string): void
 export declare function fail(message: string): void
 export declare function markdown(message: string): void
 
-export const checkReviewers = () => {
-  if (danger.github.requested_reviewers?.users.length === 0) {
-    fail('PR must have at least 1 reviewer!!')
+export const checkReviewers = (dangerConfig:DangerConfig) => {
+  const minReviewersRequired = dangerConfig.minReviewersRequired || 1
+
+  if (danger.github.requested_reviewers?.users.length < minReviewersRequired) {
+    fail(`PR must have at least ${minReviewersRequired} reviewers!!`)
     return false
   }
   return true

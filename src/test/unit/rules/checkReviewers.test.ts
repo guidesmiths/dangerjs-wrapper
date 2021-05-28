@@ -18,22 +18,33 @@ describe('Check reviewers tests', () => {
 
   it('It should fails if there are no asignees on the PR', () => {
     global.danger = { github: gitHubMockBuilder() }
-    const result = checkReviewers()
+    const dangerConfig = { giphyApiKey: 'irrelevant' }
+    const result = checkReviewers(dangerConfig)
     expect(global.fail).toHaveBeenCalled()
     expect(result).toBeFalsy()
   })
 
   it('It should not fails if there are no asignees on the PR', () => {
     global.danger = {
-      github: gitHubMockBuilder('', [{
-        id: 0,
-        login: 'aa',
-        type: 'User',
-        avatar_url: 'string',
-        href: '0'
-      }])
+      github: gitHubMockBuilder('', [
+        {
+          id: 0,
+          login: 'IrrelevantUserName',
+          type: 'User',
+          avatar_url: 'irrelevant_url',
+          href: 'irrelevant_url'
+        },
+        {
+          id: 1,
+          login: 'IrrelevantUserName1',
+          type: 'User',
+          avatar_url: 'irrelevant_url',
+          href: 'irrelevant_url'
+        }
+      ])
     }
-    const result = checkReviewers()
+    const dangerConfig = { giphyApiKey: 'irrelevant', minReviewersRequired: 2 }
+    const result = checkReviewers(dangerConfig)
     expect(global.fail).not.toHaveBeenCalled()
     expect(result).toBeTruthy()
   })

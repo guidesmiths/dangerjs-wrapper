@@ -1,7 +1,10 @@
 export interface DangerConfig {
   giphyApiKey: string
-  minReviewersRequired?: number
-  ticketLinkRegExp?: RegExp
+  minReviewersRequired: number
+  ticketLinkRegExp: RegExp
+  changedFilesLimit: number
+  shouldCheckTests: boolean
   testFilesRegExp?: RegExp
-  changedFilesLimit?: number
+  shouldCheckDoc: boolean
+  docFilesRegExp: RegExp
 }

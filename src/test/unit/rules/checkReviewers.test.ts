@@ -1,5 +1,5 @@
 import { checkReviewers } from '@rules'
-import { gitHubMockBuilder } from '@testing/mocks'
+import { gitHubMockBuilder, dangerConfigMockBuilder } from '@testing/mocks'
 
 import { DangerModel } from '@models'
 
@@ -18,7 +18,7 @@ describe('Check reviewers tests', () => {
 
   it('It should fails if there are no asignees on the PR', () => {
     global.danger = { github: gitHubMockBuilder() }
-    const dangerConfig = { giphyApiKey: 'irrelevant' }
+    const dangerConfig = dangerConfigMockBuilder({ giphyApiKey: 'irrelevant' })
     const result = checkReviewers(dangerConfig)
     expect(global.fail).toHaveBeenCalled()
     expect(result).toBeFalsy()
@@ -43,7 +43,7 @@ describe('Check reviewers tests', () => {
         }
       ])
     }
-    const dangerConfig = { giphyApiKey: 'irrelevant', minReviewersRequired: 2 }
+    const dangerConfig = dangerConfigMockBuilder({ giphyApiKey: 'irrelevant', minReviewersRequired: 2 })
     const result = checkReviewers(dangerConfig)
     expect(global.fail).not.toHaveBeenCalled()
     expect(result).toBeTruthy()

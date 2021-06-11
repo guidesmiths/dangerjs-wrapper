@@ -1,5 +1,5 @@
 import { checkTicketLinkInPrBoby } from '@rules'
-import { gitHubMockBuilder } from '@testing/mocks'
+import { gitHubMockBuilder, dangerConfigMockBuilder } from '@testing/mocks'
 
 import { DangerModel } from '@models'
 
@@ -33,7 +33,8 @@ describe('[Unit-Tests] - checkTicketLinkInPrBoby', () => {
     - [ ] I've added tests`
       )
     }
-    const result = checkTicketLinkInPrBoby({ giphyApiKey: 'irrelevant' })
+    const dangerFile = dangerConfigMockBuilder({ ticketLinkRegExp: /https:\/\/dev.azure.com/g })
+    const result = checkTicketLinkInPrBoby(dangerFile)
     expect(global.fail).not.toHaveBeenCalled()
     expect(result).toBeTruthy()
   })
@@ -55,7 +56,8 @@ describe('[Unit-Tests] - checkTicketLinkInPrBoby', () => {
     - [ ] I've added tests`
       )
     }
-    const result = checkTicketLinkInPrBoby({ giphyApiKey: 'irrelevant' })
+    const dangerFile = dangerConfigMockBuilder({ ticketLinkRegExp: /https:\/\/dev.azure.com/g })
+    const result = checkTicketLinkInPrBoby(dangerFile)
     expect(global.fail).toHaveBeenCalled()
     expect(result).toBeFalsy()
   })

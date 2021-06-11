@@ -7,15 +7,23 @@ import {
   checkUpdatedTests
 } from '../rules'
 
-export const checkPullRequest = (dangerConfig:DangerConfig) => {
-  const rules:boolean[] = [
-    checkChangedFiles(dangerConfig),
-    checkReviewers(dangerConfig),
-    checkTicketLinkInPrBoby(dangerConfig),
-    checkUpdatedTests(dangerConfig)
+interface RuleItem {
+  ruleResult: boolean,
+  isMandatory: boolean
+}
+export const checkPullRequest = (dangerConfig: DangerConfig) => {
+  const rules:RuleItem[] = [
+    { ruleResult: checkChangedFiles(dangerConfig), isMandatory: true },
+    { ruleResult: checkReviewers(dangerConfig), isMandatory: true },
+    { ruleResult: checkTicketLinkInPrBoby(dangerConfig), isMandatory: true },
+    { ruleResult: checkUpdatedTests(dangerConfig), isMandatory: false }
   ]
 
-  if (rules.every(result => result)) {
+  const mandatoryRules:RuleItem[] = rules.filter(({ isMandatory }) => isMandatory)
+  const isAFlawlessCode:boolean = mandatoryRules.every(({ ruleResult }) => ruleResult)
+
+  if (isAFlawlessCode) {
     checkFlawlessCode(dangerConfig)
   }
+  return isAFlawlessCode
 }

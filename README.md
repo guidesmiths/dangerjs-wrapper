@@ -20,10 +20,13 @@ npm i -D dangerjs-wrapper
 ````typescript
 interface DangerConfig {
   giphyApiKey: string
-  minReviewersRequired?: number
-  ticketLinkRegExp?: RegExp
+  minReviewersRequired: number
+  ticketLinkRegExp: RegExp
+  changedFilesLimit: number
+  shouldCheckTests: boolean
   testFilesRegExp?: RegExp
-  changedFilesLimit?: number
+  shouldCheckDoc: boolean
+  docFilesRegExp: RegExp
 }
 ````
 
@@ -31,10 +34,14 @@ interface DangerConfig {
 
 ```js
 const { checkPullRequest } = require('dangerjs-wrapper')
-const dangerConfig = { 
-  giphyApiKey: 'example',
-  minReviewersRequired:2,
-  changedFilesLimit: 5
+const dangerConfig = {
+  giphyApiKey: 'irrelevant',
+  docFilesRegExp: /./g,
+  changedFilesLimit: 4,
+  minReviewersRequired: 2,
+  ticketLinkRegExp: /https:\/\/dev.example.com/g,
+  shouldCheckTests: false,
+  shouldCheckDoc: false
 }
 
 checkPullRequest(dangerConfig)

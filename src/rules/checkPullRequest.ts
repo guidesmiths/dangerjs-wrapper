@@ -13,8 +13,8 @@ interface RuleItem {
 }
 export const checkPullRequest = (dangerConfig: DangerConfig) => {
   const rules:RuleItem[] = [
-    { ruleResult: checkChangedFiles(dangerConfig), isMandatory: true },
-    { ruleResult: checkReviewers(dangerConfig), isMandatory: true },
+    { ruleResult: checkChangedFiles(dangerConfig), isMandatory: false },
+    { ruleResult: checkReviewers(dangerConfig), isMandatory: false },
     { ruleResult: checkTicketLinkInPrBoby(dangerConfig), isMandatory: true },
     { ruleResult: checkUpdatedTests(dangerConfig), isMandatory: false }
   ]

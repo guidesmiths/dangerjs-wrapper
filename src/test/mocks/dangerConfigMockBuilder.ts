@@ -6,16 +6,12 @@ export const dangerConfigMockBuilder:DangerConfigMockBuilder = ({
   giphyApiKey = 'irrelevant',
   minReviewersRequired = 2,
   ticketLinkRegExp = /https=\/\/dev.azure.com/g,
-  changedFilesLimit = 0,
-  shouldCheckTests = false,
-  shouldCheckDoc = false,
+  changedFilesLimit = 10,
   docFilesRegExp = /.(yml)/g
 }) => ({
   giphyApiKey,
   minReviewersRequired,
   ticketLinkRegExp,
   changedFilesLimit,
-  shouldCheckTests,
-  shouldCheckDoc,
   docFilesRegExp
 })

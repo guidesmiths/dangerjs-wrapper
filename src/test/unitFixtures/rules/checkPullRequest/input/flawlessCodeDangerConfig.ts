@@ -5,7 +5,5 @@ export const flawlessCodeDangerConfig: DangerConfig = {
   docFilesRegExp: /./g,
   changedFilesLimit: 4,
   minReviewersRequired: 2,
-  ticketLinkRegExp: /https:\/\/dev.azure.com/g,
-  shouldCheckTests: false,
-  shouldCheckDoc: false
+  ticketLinkRegExp: /https:\/\/dev.azure.com/g
 }

@@ -5,7 +5,5 @@ export const notFlawlessCodeDangerConfig: DangerConfig = {
   docFilesRegExp: /./g,
   changedFilesLimit: 4,
   minReviewersRequired: 4,
-  ticketLinkRegExp: /https:\/\/dev.jira.com/g,
-  shouldCheckTests: false,
-  shouldCheckDoc: false
+  ticketLinkRegExp: /https:\/\/dev.jira.com/g
 }

@@ -20,7 +20,7 @@ describe('Check reviewers tests', () => {
     global.danger = { github: gitHubMockBuilder() }
     const dangerConfig = dangerConfigMockBuilder({ giphyApiKey: 'irrelevant' })
     const result = checkReviewers(dangerConfig)
-    expect(global.fail).toHaveBeenCalled()
+    expect(global.warn).toHaveBeenCalled()
     expect(result).toBeFalsy()
   })
 
@@ -45,7 +45,7 @@ describe('Check reviewers tests', () => {
     }
     const dangerConfig = dangerConfigMockBuilder({ giphyApiKey: 'irrelevant', minReviewersRequired: 2 })
     const result = checkReviewers(dangerConfig)
-    expect(global.fail).not.toHaveBeenCalled()
+    expect(global.warn).not.toHaveBeenCalled()
     expect(result).toBeTruthy()
   })
 })

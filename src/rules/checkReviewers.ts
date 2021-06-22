@@ -14,7 +14,7 @@ export const checkReviewers = (dangerConfig:DangerConfig) => {
   const minReviewersRequired = dangerConfig.minReviewersRequired || 1
 
   if (danger.github.requested_reviewers?.users.length < minReviewersRequired) {
-    fail(`PR must have at least ${minReviewersRequired} reviewers!!`)
+    warn(`The pull request must have at least ${minReviewersRequired} reviewers!!`)
     return false
   }
   return true

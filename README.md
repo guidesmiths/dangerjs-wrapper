@@ -23,10 +23,8 @@ interface DangerConfig {
   minReviewersRequired: number
   ticketLinkRegExp: RegExp
   changedFilesLimit: number
-  shouldCheckTests: boolean
   testFilesRegExp?: RegExp
-  shouldCheckDoc: boolean
-  docFilesRegExp: RegExp
+  docFilesRegExp?: RegExp
 }
 ````
 
@@ -40,8 +38,6 @@ const dangerConfig = {
   changedFilesLimit: 4,
   minReviewersRequired: 2,
   ticketLinkRegExp: /https:\/\/dev.example.com/g,
-  shouldCheckTests: false,
-  shouldCheckDoc: false
 }
 
 checkPullRequest(dangerConfig)

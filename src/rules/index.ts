@@ -1,5 +1,6 @@
 export { checkChangedFiles } from './checkChangedFiles'
-export { checkReviewers } from './checkReviewers'
+export { checkRequestedReviewers } from './checkRequestedReviewers'
+export { checkApprovals } from './checkApprovals'
 export { checkTicketLinkInPrBoby } from './checkTicketLinkInPrBoby'
 export { checkUpdatedTests } from './checkUpdatedTests'
 export { checkFlawlessCode } from './checkFlawlessCode'

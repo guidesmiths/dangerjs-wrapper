@@ -4,12 +4,12 @@ import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL'
 declare let danger: DangerDSLType
 
 // TODO Check where are declared these exported functions
-export declare function fail(message: string): void
+export declare function warn(message: string): void
 
 export const checkApprovals = () => {
   const prReviews = danger.github.reviews
   if (!prReviews.every(prReview => prReview.state === 'APPROVED')) {
-    fail('You cannot merge until everyone has approved the PR')
+    warn('You cannot merge until everyone has approved the PR')
     return false
   }
   return true

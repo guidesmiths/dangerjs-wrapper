@@ -7,7 +7,7 @@ declare const global: DangerModel
 
 describe('Check approvals tests', () => {
   beforeEach(() => {
-    global.fail = jest.fn()
+    global.warn = jest.fn()
   })
 
   afterEach(() => {
@@ -44,7 +44,7 @@ describe('Check approvals tests', () => {
       )
     }
     const result = checkApprovals()
-    expect(global.fail).toHaveBeenCalled()
+    expect(global.warn).toHaveBeenCalled()
     expect(result).toBeFalsy()
   })
 
@@ -78,7 +78,7 @@ describe('Check approvals tests', () => {
       )
     }
     const result = checkApprovals()
-    expect(global.fail).not.toHaveBeenCalled()
+    expect(global.warn).not.toHaveBeenCalled()
     expect(result).toBeTruthy()
   })
 })

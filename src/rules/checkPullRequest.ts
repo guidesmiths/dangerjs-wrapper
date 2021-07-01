@@ -1,8 +1,9 @@
 import { DangerConfig } from '../models/DangerConfig'
 import {
+  checkApprovals,
   checkChangedFiles,
   checkFlawlessCode,
-  checkReviewers,
+  checkRequestedReviewers,
   checkTicketLinkInPrBoby,
   checkUpdatedTests
 } from '../rules'
@@ -14,9 +15,10 @@ interface RuleItem {
 export const checkPullRequest = (dangerConfig: DangerConfig) => {
   const rules:RuleItem[] = [
     { ruleResult: checkChangedFiles(dangerConfig), isMandatory: false },
-    { ruleResult: checkReviewers(dangerConfig), isMandatory: false },
+    { ruleResult: checkRequestedReviewers(dangerConfig), isMandatory: false },
     { ruleResult: checkTicketLinkInPrBoby(dangerConfig), isMandatory: true },
-    { ruleResult: checkUpdatedTests(dangerConfig), isMandatory: false }
+    { ruleResult: checkUpdatedTests(dangerConfig), isMandatory: false },
+    { ruleResult: checkApprovals(), isMandatory: true }
   ]
 
   const mandatoryRules:RuleItem[] = rules.filter(({ isMandatory }) => isMandatory)

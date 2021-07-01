@@ -30,5 +30,29 @@ export const notFlawlessCode = {
       avatar_url: 'irrelevant_url',
       href: 'irrelevant_url'
     }
-  ])
+  ],
+  [{
+    id: 1,
+    user: {
+      id: 0,
+      login: 'IrrelevantUserName1',
+      type: 'User',
+      avatar_url: 'irrelevant_url_1',
+      href: 'irrelevant_url_1'
+    },
+    body: '',
+    state: 'APPROVED'
+  },
+  {
+    id: 2,
+    user: {
+      id: 0,
+      login: 'IrrelevantUserName2',
+      type: 'User',
+      avatar_url: 'irrelevant_url_2',
+      href: 'irrelevant_url_2'
+    },
+    body: '',
+    state: 'COMMENT'
+  }])
 }

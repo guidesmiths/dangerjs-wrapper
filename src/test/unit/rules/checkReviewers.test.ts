@@ -16,7 +16,7 @@ describe('Check reviewers tests', () => {
     jest.resetAllMocks()
   })
 
-  it('It should fails if there are no asignees on the PR', () => {
+  it('should fail if there are no reviewers in the PR', () => {
     global.danger = { github: gitHubMockBuilder() }
     const dangerConfig = dangerConfigMockBuilder({ giphyApiKey: 'irrelevant' })
     const result = checkReviewers(dangerConfig)
@@ -24,7 +24,7 @@ describe('Check reviewers tests', () => {
     expect(result).toBeFalsy()
   })
 
-  it('It should not fails if there are no asignees on the PR', () => {
+  it('should not fail if there are more reviewers than the minimun defined in the config', () => {
     global.danger = {
       github: gitHubMockBuilder('', [
         {
@@ -47,5 +47,30 @@ describe('Check reviewers tests', () => {
     const result = checkReviewers(dangerConfig)
     expect(global.warn).not.toHaveBeenCalled()
     expect(result).toBeTruthy()
+  })
+
+  it('should fail if there are les reviewers than the minimun defined in the config', () => {
+    global.danger = {
+      github: gitHubMockBuilder('', [
+        {
+          id: 0,
+          login: 'IrrelevantUserName',
+          type: 'User',
+          avatar_url: 'irrelevant_url',
+          href: 'irrelevant_url'
+        },
+        {
+          id: 1,
+          login: 'IrrelevantUserName1',
+          type: 'User',
+          avatar_url: 'irrelevant_url',
+          href: 'irrelevant_url'
+        }
+      ])
+    }
+    const dangerConfig = dangerConfigMockBuilder({ giphyApiKey: 'irrelevant', minReviewersRequired: 3 })
+    const result = checkReviewers(dangerConfig)
+    expect(global.warn).toHaveBeenCalled()
+    expect(result).toBeFalsy()
   })
 })

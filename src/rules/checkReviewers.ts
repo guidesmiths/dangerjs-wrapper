@@ -5,10 +5,7 @@ import { DangerConfig } from '../models/DangerConfig'
 declare let danger: DangerDSLType
 
 // TODO Check where are declared these exported functions
-export declare function message(message: string): void
 export declare function warn(message: string): void
-export declare function fail(message: string): void
-export declare function markdown(message: string): void
 
 export const checkReviewers = (dangerConfig:DangerConfig) => {
   const minReviewersRequired = dangerConfig.minReviewersRequired || 1

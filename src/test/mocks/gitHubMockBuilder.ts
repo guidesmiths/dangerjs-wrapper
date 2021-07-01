@@ -1,6 +1,9 @@
-import { GitHubJSONDSL, GitHubUser } from 'danger'
+import { GitHubJSONDSL, GitHubReview, GitHubUser } from 'danger'
 
-export const gitHubMockBuilder = (prBody: string = '', requestedReviewers: GitHubUser[] = []): GitHubJSONDSL => {
+export const gitHubMockBuilder = (
+  prBody: string = '',
+  requestedReviewers: GitHubUser[] = [],
+  reviews: GitHubReview[] = []): GitHubJSONDSL => {
   return {
     issue: {
       labels: [
@@ -189,20 +192,7 @@ export const gitHubMockBuilder = (prBody: string = '', requestedReviewers: GitHu
         ]
       }
     ],
-    reviews: [
-      {
-        user: {
-          id: 1,
-          login: 'string',
-          type: 'User',
-          avatar_url: 'string',
-          href: 'string'
-        },
-        body: 'string',
-        commit_id: 'string',
-        state: 'PENDING'
-      }
-    ],
+    reviews: reviews,
     requested_reviewers: {
       users: requestedReviewers,
       teams: [

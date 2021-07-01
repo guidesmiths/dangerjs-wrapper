@@ -6,14 +6,13 @@ declare let danger: DangerDSLType
 
 // TODO Check where are declared these exported functions
 export declare function warn(message: string): void
+export declare function error(message: string): void
 
-export const checkReviewers = (dangerConfig:DangerConfig) => {
+export const checkRequestedReviewers = (dangerConfig:DangerConfig) => {
   const minReviewersRequired = dangerConfig.minReviewersRequired || 1
-  console.log(danger.github)
-  const prReviewers = danger.github.requested_reviewers?.users.length
+  const prReviewers = danger.github.requested_reviewers?.users.length + danger.github.reviews.length
   if (prReviewers < minReviewersRequired) {
-    warn(`The pull request must have at least ${minReviewersRequired} reviewers. Right now just have ${prReviewers} !!`)
-    warn(JSON.stringify(danger.github))
+    warn(`The PR has ${prReviewers} reviewers and must have at least ${minReviewersRequired} reviewers !!`)
     return false
   }
   return true

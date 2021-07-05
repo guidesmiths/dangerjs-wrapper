@@ -38,6 +38,18 @@ export const flawlessCode = {
       href: 'irrelevant_url_2'
     },
     body: '',
+    state: 'COMMENT'
+  },
+  {
+    id: 2,
+    user: {
+      id: 0,
+      login: 'IrrelevantUserName2',
+      type: 'User',
+      avatar_url: 'irrelevant_url_2',
+      href: 'irrelevant_url_2'
+    },
+    body: '',
     state: 'APPROVED'
   }])
 }

@@ -18,7 +18,7 @@ export const checkPullRequest = (dangerConfig: DangerConfig) => {
     { ruleResult: checkRequestedReviewers(dangerConfig), isMandatory: false },
     { ruleResult: checkTicketLinkInPrBoby(dangerConfig), isMandatory: true },
     { ruleResult: checkUpdatedTests(dangerConfig), isMandatory: false },
-    { ruleResult: checkApprovals(), isMandatory: true }
+    { ruleResult: checkApprovals(dangerConfig), isMandatory: true }
   ]
 
   const mandatoryRules:RuleItem[] = rules.filter(({ isMandatory }) => isMandatory)

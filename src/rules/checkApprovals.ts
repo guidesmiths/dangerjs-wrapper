@@ -9,7 +9,7 @@ export declare function warn(message: string): void
 export const checkApprovals = () => {
   const prReviews = danger.github.reviews
   if (!prReviews.every(prReview => prReview.state === 'APPROVED')) {
-    warn('You cannot merge until everyone has approved the PR')
+    warn('You should not merge until everyone has approved the PR')
     return false
   }
   return true

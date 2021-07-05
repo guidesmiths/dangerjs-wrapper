@@ -1,5 +1,5 @@
 import { checkApprovals } from '@rules'
-import { gitHubMockBuilder } from '@testing/mocks'
+import { dangerConfigMockBuilder, gitHubMockBuilder } from '@testing/mocks'
 
 import { DangerModel } from '@models'
 
@@ -43,7 +43,8 @@ describe('Check approvals tests', () => {
         }]
       )
     }
-    const result = checkApprovals()
+    const dangerConfig = dangerConfigMockBuilder({ minReviewersRequired: 2 })
+    const result = checkApprovals(dangerConfig)
     expect(global.warn).toHaveBeenCalled()
     expect(result).toBeFalsy()
   })
@@ -77,7 +78,8 @@ describe('Check approvals tests', () => {
         }]
       )
     }
-    const result = checkApprovals()
+    const dangerConfig = dangerConfigMockBuilder({ minReviewersRequired: 2 })
+    const result = checkApprovals(dangerConfig)
     expect(global.warn).not.toHaveBeenCalled()
     expect(result).toBeTruthy()
   })
